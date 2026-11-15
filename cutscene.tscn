@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://b4us5e1gvip3w"]
+
+[ext_resource type="Script" uid="uid://3oyfpgrtttg6" path="res://cutscene.gd" id="1_ix241"]
+[ext_resource type="VideoStream" uid="uid://dhlvgcn7g5c0w" path="res://WhatsApp-Video-2026-11-15-at-11.23.24-AM-_1_.ogv" id="1_ye7fo"]
+
+[node name="Cutscene" type="Control" unique_id=1296574508]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ix241")
+
+[node name="VideoPlayer" type="VideoStreamPlayer" parent="." unique_id=872468792]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_ye7fo")
+expand = true
+
+[node name="SkipButton" type="Button" parent="." unique_id=358357315]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 196.0
+offset_bottom = 61.0
+text = "SKIP"
+
+[connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]

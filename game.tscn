@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://b546pel4g1m4b"]
+
+[ext_resource type="Texture2D" uid="uid://c7inuyl56dx8w" path="res://bgg.png" id="1_eow3j"]
+[ext_resource type="Texture2D" uid="uid://pifurf7wlnmu" path="res://_tfo-removebg-preview.png" id="2_j5wjh"]
+[ext_resource type="Script" uid="uid://gi1jbrwymho3" path="res://plyare.gd" id="2_vef74"]
+[ext_resource type="PackedScene" uid="uid://bjonhantu34d4" path="res://Bullet.tscn" id="3_hve3p"]
+[ext_resource type="Texture2D" uid="uid://ckl1qq0nldcg5" path="res:// powertaft.png" id="3_vef74"]
+[ext_resource type="Texture2D" uid="uid://dpulvec7kwdqy" path="res:// powerfo9.png" id="4_hve3p"]
+[ext_resource type="Texture2D" uid="uid://cn3wdb31hurlq" path="res://aki_qeufhqilefh-removebg-preview.png" id="5_mfdv2"]
+[ext_resource type="Texture2D" uid="uid://cbv0covwq4cfj" path="res://dkshedsu-removebg-preview (2).png" id="7_j5wjh"]
+[ext_resource type="Texture2D" uid="uid://dei3xbgjhvhly" path="res://kzuhdkshdkusqhd-removebg-preview.png" id="7_lc2xo"]
+[ext_resource type="Texture2D" uid="uid://dclqo4utet3g6" path="res://power_cat__meowy_-removebg-preview.png" id="9_vef74"]
+[ext_resource type="PackedScene" uid="uid://c6mdfh5d5y0o3" path="res://walker_2.tscn" id="11_lc2xo"]
+[ext_resource type="PackedScene" uid="uid://byg8gxp75vich" path="res://walker.tscn" id="11_mfdv2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_51fql"]
+size = Vector2(45, 698)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mq8aq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_j5wjh")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vef74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hve3p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_j5wjh")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 6.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fi5v2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_lc2xo")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_mfdv2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_j5wjh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_j5wjh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lc2xo")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mq8aq"]
+radius = 44.0
+height = 242.0
+
+[node name="Game" type="Node2D" unique_id=1032879678]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=204027661]
+position = Vector2(570.99994, 330)
+scale = Vector2(1.8640625, 1.8021978)
+texture = ExtResource("1_eow3j")
+
+[node name="Boundaries" type="StaticBody2D" parent="." unique_id=2015412845]
+visible = false
+
+[node name="Rightwall" type="CollisionShape2D" parent="Boundaries" unique_id=419222447]
+visible = false
+position = Vector2(1155.5, 366)
+shape = SubResource("RectangleShape2D_51fql")
+
+[node name="Leftwall" type="CollisionShape2D" parent="Boundaries" unique_id=767550686]
+position = Vector2(-27.5, 326)
+shape = SubResource("RectangleShape2D_51fql")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1930932040]
+position = Vector2(-9, 0)
+script = ExtResource("2_vef74")
+bullet_scene = ExtResource("3_hve3p")
+
+[node name="PowerSprite" type="AnimatedSprite2D" parent="Player" unique_id=2143763052]
+position = Vector2(216, 505)
+scale = Vector2(0.848, 0.896)
+sprite_frames = SubResource("SpriteFrames_mq8aq")
+animation = &"walk"
+frame_progress = 0.30295557
+
+[node name="Two" type="AnimatedSprite2D" parent="Player" unique_id=1024963498]
+visible = false
+position = Vector2(232, 485)
+scale = Vector2(0.99999994, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_fi5v2")
+animation = &"walk"
+frame = 1
+frame_progress = 0.99163616
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=544492299]
+visible = false
+position = Vector2(219, 491)
+shape = SubResource("CapsuleShape2D_mq8aq")
+
+[node name="GunPivot" type="Node2D" parent="Player" unique_id=760345165]
+position = Vector2(249, 519)
+
+[node name="Gun" type="Sprite2D" parent="Player/GunPivot" unique_id=66800940]
+position = Vector2(90, -15)
+texture = ExtResource("9_vef74")
+
+[node name="Muzzle" type="Marker2D" parent="Player/GunPivot/Gun" unique_id=841585578]
+position = Vector2(-10, 4)
+
+[node name="walker2" parent="." unique_id=1878705063 instance=ExtResource("11_lc2xo")]
+position = Vector2(277, 20)
+
+[node name="Walker" parent="." unique_id=141273039 instance=ExtResource("11_mfdv2")]
+position = Vector2(-69, 6)

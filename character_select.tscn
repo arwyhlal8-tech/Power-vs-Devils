@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bjj7xx3rihkm4"]
+
+[ext_resource type="Texture2D" uid="uid://pifurf7wlnmu" path="res://_tfo-removebg-preview.png" id="1_aoibv"]
+[ext_resource type="Script" uid="uid://ckxyyl5sfm8dd" path="res://character_select.gd" id="1_mn8d4"]
+[ext_resource type="Texture2D" uid="uid://csop71g02vu0h" path="res://backroom.png" id="2_7yigr"]
+[ext_resource type="Texture2D" uid="uid://brve8d5jwop68" path="res://power-removebg-preview.png" id="2_mn8d4"]
+[ext_resource type="Texture2D" uid="uid://cn3wdb31hurlq" path="res://aki_qeufhqilefh-removebg-preview.png" id="5_7yigr"]
+[ext_resource type="Texture2D" uid="uid://blf66xy5wjxco" path="res://kehfkhf-removebg-preview.png" id="6_4hbjg"]
+
+[node name="CharacterSelect" type="Control" unique_id=992477491]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mn8d4")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=149506623]
+layout_mode = 0
+offset_left = -9.0
+offset_right = 1148.0
+offset_bottom = 659.0
+texture = ExtResource("2_7yigr")
+
+[node name="PowerButton" type="TextureButton" parent="." unique_id=1205114611]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 107.0
+offset_right = 632.0
+offset_bottom = 607.0
+texture_normal = ExtResource("1_aoibv")
+texture_pressed = ExtResource("2_mn8d4")
+
+[node name="SecondCharacterButton" type="TextureButton" parent="." unique_id=1286394168]
+layout_mode = 0
+offset_left = 527.0
+offset_top = 126.0
+offset_right = 1027.0
+offset_bottom = 626.0
+texture_normal = ExtResource("5_7yigr")
+texture_pressed = ExtResource("6_4hbjg")
